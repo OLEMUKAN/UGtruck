@@ -1,0 +1,75 @@
+﻿@page
+@model TruckLoadingApp.Pages.Loads.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Load</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Load.LoadId" />
+            <div class="form-group">
+                <label asp-for="Load.Description" class="control-label"></label>
+                <input asp-for="Load.Description" class="form-control" />
+                <span asp-validation-for="Load.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Load.WeightInTons" class="control-label"></label>
+                <input asp-for="Load.WeightInTons" class="form-control" />
+                <span asp-validation-for="Load.WeightInTons" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Load.VolumeInCubicFeet" class="control-label"></label>
+                <input asp-for="Load.VolumeInCubicFeet" class="form-control" />
+                <span asp-validation-for="Load.VolumeInCubicFeet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Load.PickupLocationId" class="control-label"></label>
+                <select asp-for="Load.PickupLocationId" class="form-control" asp-items="ViewBag.PickupLocationId"></select>
+                <span asp-validation-for="Load.PickupLocationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Load.DeliveryLocationId" class="control-label"></label>
+                <select asp-for="Load.DeliveryLocationId" class="form-control" asp-items="ViewBag.DeliveryLocationId"></select>
+                <span asp-validation-for="Load.DeliveryLocationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Load.PickupDate" class="control-label"></label>
+                <input asp-for="Load.PickupDate" class="form-control" />
+                <span asp-validation-for="Load.PickupDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Load.DeliveryDate" class="control-label"></label>
+                <input asp-for="Load.DeliveryDate" class="form-control" />
+                <span asp-validation-for="Load.DeliveryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Load.ShipmentId" class="control-label"></label>
+                <select asp-for="Load.ShipmentId" class="form-control" asp-items="ViewBag.ShipmentId"></select>
+                <span asp-validation-for="Load.ShipmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Load.BookingId" class="control-label"></label>
+                <select asp-for="Load.BookingId" class="form-control" asp-items="ViewBag.BookingId"></select>
+                <span asp-validation-for="Load.BookingId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

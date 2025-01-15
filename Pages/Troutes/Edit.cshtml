@@ -1,0 +1,75 @@
+﻿@page
+@model TruckLoadingApp.Pages.Troutes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TRoute</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TRoute.RouteId" />
+            <div class="form-group">
+                <label asp-for="TRoute.OriginId" class="control-label"></label>
+                <select asp-for="TRoute.OriginId" class="form-control" asp-items="ViewBag.OriginId"></select>
+                <span asp-validation-for="TRoute.OriginId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TRoute.DestinationId" class="control-label"></label>
+                <select asp-for="TRoute.DestinationId" class="form-control" asp-items="ViewBag.DestinationId"></select>
+                <span asp-validation-for="TRoute.DestinationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TRoute.AvailableDate" class="control-label"></label>
+                <input asp-for="TRoute.AvailableDate" class="form-control" />
+                <span asp-validation-for="TRoute.AvailableDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TRoute.DriverId" class="control-label"></label>
+                <select asp-for="TRoute.DriverId" class="form-control" asp-items="ViewBag.DriverId"></select>
+                <span asp-validation-for="TRoute.DriverId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TRoute.Description" class="control-label"></label>
+                <input asp-for="TRoute.Description" class="form-control" />
+                <span asp-validation-for="TRoute.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TRoute.CurrentCapacityPercentage" class="control-label"></label>
+                <input asp-for="TRoute.CurrentCapacityPercentage" class="form-control" />
+                <span asp-validation-for="TRoute.CurrentCapacityPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TRoute.IsReturnTrip" /> @Html.DisplayNameFor(model => model.TRoute.IsReturnTrip)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TRoute.DistanceInMiles" class="control-label"></label>
+                <input asp-for="TRoute.DistanceInMiles" class="form-control" />
+                <span asp-validation-for="TRoute.DistanceInMiles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TRoute.TruckId" class="control-label"></label>
+                <select asp-for="TRoute.TruckId" class="form-control" asp-items="ViewBag.TruckId"></select>
+                <span asp-validation-for="TRoute.TruckId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

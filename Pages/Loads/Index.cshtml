@@ -1,0 +1,84 @@
+﻿@page
+@model TruckLoadingApp.Pages.Loads.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].WeightInTons)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].VolumeInCubicFeet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].PickupLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].DeliveryLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].PickupDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].DeliveryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].Shipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Load[0].Booking)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Load) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightInTons)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VolumeInCubicFeet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupLocation.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryLocation.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shipment.ClientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.ClientId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.LoadId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.LoadId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.LoadId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
